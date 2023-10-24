@@ -2,15 +2,15 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ThreadsTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+    use DatabaseMigrations;
+
     public function a_user_can_browse_threads(): void
     {
         $response = $this->get('/threads');
