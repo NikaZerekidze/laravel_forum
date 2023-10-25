@@ -17,7 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/threads', [ThreadController::class, 'index']);
 Auth::routes();
+
+Route::get('/threads', [ThreadController::class, 'index']);
+Route::get('/threads/{thread}' , [ThreadController::class, 'show']);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

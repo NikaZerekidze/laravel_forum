@@ -21,7 +21,7 @@ class ThreadController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -37,7 +37,8 @@ class ThreadController extends Controller
      */
     public function show(Thread $thread)
     {
-        //
+        return view('threads.show', compact('thread'));
+
     }
 
     /**

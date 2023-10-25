@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Thread;
 use App\Models\Replay;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,29 +23,29 @@ class DatabaseSeeder extends Seeder
             //     'name' => 'Test User',
             //     'email' => 'test@example.com',
             // ]);
-    
+
             Thread::factory()->count(50)->create();
-            
-            // Thread::all()->each(function($thread){
-            //     Replay::factory()->count(10)->create([
-            //         "thread_id" => $thread
-            //     ]);
-            // });
-    
-            Thread::withCount("replays")->get()->each(function($thread){
-    
-                if($thread->replays_count === 0) {
-                    Replay::factory()->count(10)->create([
-                        "thread_id" => $thread->id
-                    ]);
-                }
-    
-            });
-    
+
+             Thread::all()->each(function($thread){
+                 Replay::factory()->count(10)->create([
+                     "thread_id" => $thread
+                 ]);
+             });
+
+//            Thread::withCount("replays")->get()->each(function($thread){
+//
+//                if($thread->replays_count === 0) {
+//                    Replay::factory()->count(10)->create([
+//                        "thread_id" => $thread->id
+//                    ]);
+//                }
+//
+//            });
+
 
         });
-      
 
- 
+
+
     }
 }
