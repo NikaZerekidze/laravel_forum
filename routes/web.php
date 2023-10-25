@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\ThreadController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/threads", 'ThreadController@inxed');
-
+Route::get('/threads', [ThreadController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -11,7 +11,7 @@ class ThreadsTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function a_user_can_browse_threads(): void
+    public function test_a_user_can_browse_threads(): void
     {
         $response = $this->get('/threads');
 
