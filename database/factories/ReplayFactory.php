@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\User;
 use App\Models\Thread;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Replay>
@@ -18,12 +18,10 @@ class ReplayFactory extends Factory
      */
     public function definition(): array
     {
-       
         return [
             "user_id" => User::factory(),
-            "thread_id" => Thread::factory(),    
+            "thread_id" => Thread::factory(),
             "body" => $this->faker->paragraph
-
         ];
     }
 }

@@ -23,6 +23,32 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Forum Threads</div>
+
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                          @if (!$thread->replies->isEmpty())
+                              @foreach($thread->replies as $replay)
+                                    <br/>
+
+                                    <div class="panel-body">
+                                        <article> {{$replay->user_id}} </article>
+                                        <hr/>
+                                        <br/>
+                                        <div class="thread-body">{{$replay->body}}</div>
+                                    </div>
+                                @endforeach
+                            @endif
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection

@@ -24,23 +24,23 @@ class DatabaseSeeder extends Seeder
             //     'email' => 'test@example.com',
             // ]);
 
-            Thread::factory()->count(50)->create();
-
-             Thread::all()->each(function($thread){
-                 Replay::factory()->count(10)->create([
-                     "thread_id" => $thread
-                 ]);
-             });
-
-//            Thread::withCount("replays")->get()->each(function($thread){
+//            Thread::factory()->count(50)->create();
 //
-//                if($thread->replays_count === 0) {
-//                    Replay::factory()->count(10)->create([
-//                        "thread_id" => $thread->id
-//                    ]);
-//                }
-//
-//            });
+//             Thread::all()->each(function($thread){
+//                 Replay::factory()->count(10)->create([
+//                     "thread_id" => $thread
+//                 ]);
+//             });
+
+            Thread::withCount("replies")->get()->each(function($thread){
+
+                if($thread->replays_count === 0) {
+                    Replay::factory()->count(10)->create([
+                        "thread_id" => $thread->id
+                    ]);
+                }
+
+            });
 
 
         });

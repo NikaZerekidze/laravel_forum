@@ -16,8 +16,9 @@
 
                         <div class="panel-body">
                             @foreach($threads as $thread)
-                                <article> {{$thread->title}} </article>
+                                <a href="/threads/{{$thread->id}}"> <article> {{$thread->title}} </article> </a>
                                 <div class="thread-body">{{$thread->body}}</div>
+                                <br/>
                             @endforeach
                         </div>
 

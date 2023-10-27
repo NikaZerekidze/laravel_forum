@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer("thread_id");
             $table->text("body");
             $table->timestamps();
+
         });
     }
 
