@@ -34,12 +34,15 @@
                             </div>
                         @endif
                           @if (!$thread->replies->isEmpty())
-                              @foreach($thread->replies as $replay)
+                              @foreach($thread->replies as $key => $replay)
                                     <br/>
-
                                     <div class="panel-body">
-                                        <article> {{$replay->user_id}} </article>
+                                        <h3>Commet {{$key + 1}}</h3>
                                         <hr/>
+
+                                        <article> {{$replay->user->name}} </article>
+                                        <article> {{$replay->created_at->diffForHumans()}} </article>
+
                                         <br/>
                                         <div class="thread-body">{{$replay->body}}</div>
                                     </div>
