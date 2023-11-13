@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Replay;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 
 class ReplayController extends Controller
@@ -26,9 +27,11 @@ class ReplayController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store( Thread $thread, Request $request)
     {
-        //
+
+//        dd(   $request->input('body')      );
+        dd('aee');
     }
 
     /**

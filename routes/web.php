@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReplayController;
 use App\Http\Controllers\ThreadController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -22,5 +23,6 @@ Auth::routes();
 Route::get('/threads', [ThreadController::class, 'index']);
 Route::get('/threads/{thread}' , [ThreadController::class, 'show']);
 
+Route::post('/threads/{thread}/replies/', [ReplayController::class, 'store'] );
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

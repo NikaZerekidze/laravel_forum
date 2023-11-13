@@ -15,7 +15,9 @@
                         @endif
 
                         <div class="panel-body">
-                                <article> {{$thread->title}} </article>
+                            <h4> {{$thread->user->name}} </h4>
+
+                            <article> {{$thread->title}} </article>
                                 <br/>
                                 <div class="thread-body">{{$thread->body}}</div>
                         </div>
@@ -37,7 +39,7 @@
                               @foreach($thread->replies as $key => $replay)
                                     <br/>
                                     <div class="panel-body">
-                                        <h3>Commet {{$key + 1}}</h3>
+                                        <h5>Comment {{$key + 1}}</h5>
                                         <hr/>
 
                                         <article> {{$replay->user->name}} </article>
